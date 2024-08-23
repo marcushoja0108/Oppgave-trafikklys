@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafikklys</title>
+
+    <style>
+        .boks{
+            height: 690px;
+            width: 242px;
+            border: 2px solid black;
+            background-color: black;
+            border-radius: 10%;
+        }
+        .light{
+            height: 200px;
+            width: 200px;
+            border: 1px solid rgb(119, 119, 119);
+            border-radius: 50%;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .red{
+            background-color: red;
+            opacity: 10%;
+        }
+        .yellow{
+            background-color: yellow;
+            opacity: 10%;
+        }
+        .green{
+            background-color: green;
+            opacity: 10%;
+        } 
+
+        .active{
+            opacity: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="boks">
+        <div    id="rød"    class="red light"></div>
+        <div    id="gul"    class="yellow light"></div>
+        <div    id="grønn"    class="green light"></div>
+
+
+    </div>
+<br>
+    <button onclick="changeLight('gul', 'grønn', 'rød', 'rød')">RØDT LYS</button>
+    <button onclick="changeLight('grønn', 'grønn', 'gul', 'rød')">GULT LYS</button>
+    <button onclick="changeLight('rød', 'gul', 'grønn', 'grønn')">GRØNT LYS</button>
+
+    <br>
+
+    <button onclick="timer()">TIMER</button>
+    <script>
+
+        function changeLight(class1, class2, class3, class4){
+            
+            document.getElementById(class1).classList.remove("active")
+            document.getElementById(class2).classList.remove("active")
+            document.getElementById(class3).classList.add("active")
+            document.getElementById(class4).classList.add("active")
+            
+        }
+
+        function timer(){
+                setTimeout(redtime, 1000)
+
+            }       
+      
+            function redtime(){
+            changeLight('gul', 'grønn', 'rød', 'rød')
+            setTimeout(yellowtime, 3000)
+        }
+       
+        function yellowtime(){
+            changeLight('grønn', 'grønn', 'gul', 'rød')
+            setTimeout(greentime, 3000)
+        }
+      
+        function greentime(){
+            changeLight('rød', 'gul', 'grønn', 'grønn')
+            setTimeout(redtime, 3000)
+        }
+
+
+    </script>
+</body>
+</html>
